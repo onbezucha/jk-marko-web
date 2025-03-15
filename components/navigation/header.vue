@@ -100,9 +100,8 @@
   // Seznam položek navigace
   const navItems = [
     { name: 'Úvod', path: '/' },
-    { name: 'O nás', path: '/o-nas' },
+    { name: 'O nás', path: '/onas' },
     { name: 'Služby', path: '/sluzby' },
-    { name: 'Akce a závody', path: '/akce-zavody' },
     { name: 'Ceník', path: '/cenik' },
     { name: 'Kontakt', path: '/kontakt' }
   ]

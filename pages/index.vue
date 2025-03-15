@@ -1,6 +1,6 @@
 <template>
     <div class="default-layout">
-        <HeroSection />
+        <SekceHero />
         <SekceInformace />
         <SekceSluzby />
         <SekceCenik />
@@ -9,11 +9,12 @@
   </template>
   
   <script setup>
-    import HeroSection     from '~/components/sections/herohomepage.vue';
-    import SekceInformace  from '~/components/intro/homepage.vue';
-    import SekceSluzby     from '~/components/sections/services.vue';
-    import SekceCenik      from '~/components/sections/pricing.vue';
-    import SekceBlog       from '~/components/news/index.vue';
+    import SekceHero     from '~/components/sections/hero/homepage.vue';
+    import SekceInformace  from '~/components/sections/intro/homepage.vue';
+    import SekceSluzby     from '~/components/sections/services/homepage.vue';
+    import SekceCenik      from '~/components/sections/pricing/index.vue';
+    import SekceBlog       from '~/components/sections/blog/homepage.vue';
+    
   // Metadata pro SEO
     useSeoMeta({
         title: 'JK Marko - Jezdecký areál',
