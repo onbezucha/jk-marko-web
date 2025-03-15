@@ -240,26 +240,6 @@
             </div>
           </div>
         </div>
-  
-        <!-- Kontaktní CTA -->
-        <div class="mt-16 bg-gray-900 rounded-lg p-8 md:p-12">
-          <div class="max-w-3xl mx-auto text-center">
-            <h3 class="text-2xl font-bold text-white mb-4">
-              Máte zájem o ustájení vašeho koně?
-            </h3>
-            <p class="text-gray-300 mb-8">
-              Kontaktujte nás pro více informací, rezervaci ustájení nebo domluvení prohlídky areálu. Rádi vám odpovíme na všechny dotazy a připravíme nabídku na míru vašim požadavkům.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/kontakt" class="bg-[#009FE1] hover:bg-white hover:text-black text-white py-3 px-8 rounded-md font-medium transition duration-200">
-                Kontaktujte nás
-              </a>
-              <a href="tel:+420123456789" class="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white py-3 px-8 rounded-md font-medium transition duration-200">
-                +420 123 456 789
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   </template>
