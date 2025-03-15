@@ -16,7 +16,7 @@
             </div>
             <div class="ml-3 flex flex-col">
               <span class="text-2xl font-bold text-white tracking-tight group-hover:text-[#009FE1] transition-colors duration-300">JK Marko</span>
-              <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transform -translate-y-1 group-hover:translate-y-0 transition-all duration-300">Jezdecký Areál</span>
+              <span class="text-xs text-gray-400 md:opacity-0 md:group-hover:opacity-100 opacity-100 md:transform md:-translate-y-1 md:group-hover:translate-y-0 transition-all duration-300">Jezdecký Areál</span>
             </div>
           </NuxtLink>
         </div>
@@ -60,58 +60,35 @@
           </NuxtLink>
         </div>
         
-        <!-- Mobile menu button -->
-        <div class="md:hidden flex items-center">
+        <!-- Mobile menu button - na obrázku lépe zarovnaný -->
+        <div class="md:hidden flex items-center justify-end">
           <button 
             @click="toggleMobileMenu" 
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-[#009FE1] hover:bg-opacity-70 transition-colors duration-300"
+            class="p-2 text-gray-300 hover:text-white transition-colors duration-300"
             aria-label="Hlavní menu"
           >
-            <span class="sr-only">{{ mobileMenuOpen ? 'Zavřít menu' : 'Otevřít menu' }}</span>
-            <div class="relative w-6 h-6">
-              <span 
-                class="absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out"
-                :class="mobileMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'"
-              ></span>
-              <span 
-                class="absolute h-0.5 w-6 bg-current transform transition-all duration-200 ease-in-out"
-                :class="mobileMenuOpen ? 'opacity-0' : 'opacity-100'"
-              ></span>
-              <span 
-                class="absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out"
-                :class="mobileMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'"
-              ></span>
-            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </div>
     </div>
     
-    <!-- Mobile menu, animated slide-in from right -->
+    <!-- Mobile dropdown menu - jen potřebná část obrazovky bez překrytí -->
     <div 
-      class="md:hidden fixed inset-y-0 right-0 w-full max-w-sm bg-black transform transition-transform duration-300 ease-in-out z-50 border-l border-gray-800"
-      :class="mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'"
+      v-if="mobileMenuOpen"
+      class="md:hidden fixed top-20 left-0 w-full z-50 bg-black shadow-md"
     >
-      <div class="flex flex-col h-full pt-20 pb-6 px-6">
-        <!-- Close button for mobile -->
-        <button 
-          @click="toggleMobileMenu" 
-          class="absolute top-4 right-4 p-2 rounded-full bg-gray-900 text-white hover:text-[#009FE1] focus:outline-none"
-          aria-label="Zavřít menu"
-        >
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-        
+      <div class="flex flex-col">
         <!-- Mobile Navigation Links -->
-        <nav class="flex-1 flex flex-col justify-center">
-          <div class="space-y-4">
+        <nav>
+          <div>
             <NuxtLink
               v-for="(item, index) in navItems" 
               :key="index"
               :to="item.path"
-              class="block py-3 px-4 text-xl font-medium text-white hover:text-[#009FE1] transition-colors duration-200 border-b border-gray-800 relative"
+              class="block py-3 px-4 text-base font-medium text-white hover:text-[#009FE1] transition-colors duration-200 border-b border-gray-800"
               :class="{ 'text-[#009FE1]': isActive(item.path) }"
               @click="closeMobileMenu"
             >
@@ -120,42 +97,19 @@
           </div>
         </nav>
         
-        <!-- Mobile Contact Button -->
-        <div class="mt-8 pt-6 border-t border-gray-800">
+        <!-- Mobile Contact Button - stylově upraveno podle obrázku -->
+        <div class="p-4">
           <NuxtLink to="/kontakt" @click="closeMobileMenu">
-            <button class="w-full bg-[#009FE1] hover:bg-[#007db3] text-white font-medium py-4 px-4 rounded-md transition-all duration-300 flex items-center justify-center space-x-2 border border-[#009FE1]">
+            <button class="w-full bg-[#009FE1] text-white font-medium py-3 px-4 rounded flex items-center justify-center">
               <span>Kontaktovat</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </NuxtLink>
         </div>
-        
-        <!-- Social Icons -->
-        <div class="mt-6 flex justify-center space-x-6">
-          <a href="#" class="text-gray-400 hover:text-[#009FE1] transition-colors duration-300">
-            <span class="sr-only">Facebook</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-[#009FE1] transition-colors duration-300">
-            <span class="sr-only">Instagram</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
-    
-    <!-- Dimmed overlay for mobile menu -->
-    <div 
-      v-if="mobileMenuOpen" 
-      class="fixed inset-0 bg-black bg-opacity-50 md:hidden z-40 backdrop-blur-sm"
-      @click="closeMobileMenu"
-    ></div>
   </header>
 </template>
 
@@ -186,18 +140,13 @@ const isActive = (path) => {
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
   
-  // Prevent scrolling when menu is open
-  if (mobileMenuOpen.value) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
-  }
+  // Nebráníme scrollování stránky, když je menu otevřené
+  // protože chceme, aby zbytek stránky byl viditelný
 }
 
 // Close mobile menu
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false
-  document.body.style.overflow = ''
 }
 
 // Close menu on escape key

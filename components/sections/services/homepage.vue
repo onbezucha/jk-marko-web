@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="py-16 md:py-24 bg-gray-50 relative overflow-hidden">
+  <section id="services" class="py-16 md:py-24 bg-white relative overflow-hidden">
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Nadpis sekce -->

@@ -1,5 +1,5 @@
 <template>
-  <section id="kontakt" class="relative py-16 md:py-24 overflow-hidden bg-white">
+  <section id="kontakt" class="relative py-18 md:py-20 lg:py-24 overflow-hidden bg-white">
     <!-- Background dekorace -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
       <div class="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
@@ -8,7 +8,7 @@
 
     <div class="container mx-auto px-4 relative z-10">
       <!-- Hlavička sekce -->
-      <div class="text-center mb-12 md:mb-16">
+      <div class="text-center mb-16 md:mb-20 mt-8 md:mt-10">
         <h2 class="text-3xl md:text-4xl font-bold mb-3 relative inline-block">
           Kontaktujte nás
           <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-[#009FE1]"></span>
@@ -88,13 +88,41 @@
           </div>
 
           <!-- Mapa -->
-          <div class="mt-8 rounded-lg overflow-hidden h-48 md:h-64 relative">
-            <img src="https://picsum.photos/600/300" alt="Mapa" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-              <a href="https://maps.google.com" target="_blank" class="px-4 py-2 bg-white rounded-lg text-sm font-medium text-gray-800 flex items-center hover:bg-gray-100 transition-colors">
-                <Icon name="mdi:map" class="w-4 h-4 mr-2 text-[#009FE1]" />
-                Otevřít mapu
-              </a>
+          <div class="mt-8 rounded-lg overflow-hidden h-48 md:h-64 relative border border-gray-100 shadow-sm">
+            <div class="absolute inset-0 bg-white">
+              <!-- Simulace mapy s markery -->
+              <div class="h-full w-full relative bg-gray-100">
+                <!-- Simulovaná mapa jako obrázek -->
+                <img src="https://picsum.photos/id/29/800/400" alt="Mapa areálu" class="w-full h-full object-cover" />
+                
+                <!-- Marker pozice -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div class="w-6 h-6 bg-[#009FE1] rounded-full border-2 border-white shadow-md flex items-center justify-center animate-pulse">
+                    <Icon name="mdi:map-marker" class="w-4 h-4 text-white" />
+                  </div>
+                  <!-- Popup s informacemi -->
+                  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white px-3 py-2 rounded-lg shadow-md text-xs font-medium text-gray-800 whitespace-nowrap">
+                    Jezdecký Areál
+                    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-white"></div>
+                  </div>
+                </div>
+                
+                <!-- Ovládací prvky mapy -->
+                <div class="absolute top-3 right-3 flex flex-col space-y-2">
+                  <button class="w-8 h-8 bg-white rounded-md shadow flex items-center justify-center">
+                    <Icon name="mdi:plus" class="w-5 h-5 text-gray-700" />
+                  </button>
+                  <button class="w-8 h-8 bg-white rounded-md shadow flex items-center justify-center">
+                    <Icon name="mdi:minus" class="w-5 h-5 text-gray-700" />
+                  </button>
+                </div>
+                
+                <!-- Tlačítko pro otevření plné mapy -->
+                <a href="https://maps.google.com" target="_blank" class="absolute bottom-3 right-3 px-4 py-2 bg-white rounded-lg text-sm font-medium text-gray-800 flex items-center hover:bg-gray-50 transition-colors shadow-md">
+                  <Icon name="mdi:map" class="w-4 h-4 mr-2 text-[#009FE1]" />
+                  Otevřít v Google Maps
+                </a>
+              </div>
             </div>
           </div>
         </div>

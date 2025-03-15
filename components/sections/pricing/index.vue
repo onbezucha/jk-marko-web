@@ -1,251 +1,465 @@
 <template>
-    <section class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Ceník ustájení koní
-          </h2>
-          <div class="w-24 h-1 bg-[#009FE1] mx-auto mb-6"></div>
-          <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-            Nabízíme kvalitní ustájení s komplexní péčí o vašeho koně v moderním areálu s profesionálním zázemím.
-          </p>
+  <section id="pricing" class="bg-white py-28 sm:py-24 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <!-- Hlavička sekce -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
+          Ceník služeb
+        </h2>
+        <div class="w-24 h-1 bg-[#009FE1] mx-auto mb-6"></div>
+        <p class="max-w-2xl mx-auto text-gray-600 text-lg">
+          Nabízíme komplexní služby pro vás i vaše koně. Vyberte si z našich cenových balíčků to, co nejlépe vyhovuje vašim potřebám.
+        </p>
+      </div>
+
+      <!-- Přepínač kategorií - desktop -->
+      <div class="hidden md:flex justify-center mb-12">
+        <div class="inline-flex p-1 bg-gray-100 rounded-xl">
+          <button 
+            v-for="(tab, index) in tabs" 
+            :key="index"
+            @click="activeTab = tab.id"
+            :class="[
+              'px-5 py-3 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap',
+              activeTab === tab.id ? 'bg-[#009FE1] text-white shadow-lg' : 'text-gray-600 hover:text-gray-900'
+            ]"
+          >
+            {{ tab.name }}
+          </button>
         </div>
-  
-        <!-- Balíčky ustájení -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <!-- Základní balíček -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
-            <div class="bg-gray-900 py-4 px-6">
-              <h3 class="text-xl font-bold text-white text-center">Základní ustájení</h3>
-            </div>
-            <div class="p-6">
-              <div class="text-center mb-6">
-                <span class="text-4xl font-bold text-gray-900">7 500 Kč</span>
-                <span class="text-gray-600 ml-2">/ měsíc</span>
+      </div>
+
+      <!-- Přepínač kategorií - mobilní (tlačítka) -->
+      <div class="md:hidden mb-8">
+        <div class="flex flex-wrap justify-center gap-2">
+          <button 
+            v-for="(tab, index) in tabs" 
+            :key="index"
+            @click="activeTab = tab.id"
+            :class="[
+              'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex-1 text-center min-w-[110px]',
+              activeTab === tab.id ? 'bg-[#009FE1] text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            ]"
+          >
+            {{ tab.name }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Sekce ceníku -->
+      <div class="relative">
+        <!-- Ustájení koní -->
+        <div v-show="activeTab === 'boarding'" class="transition-all duration-300">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Hlavní služby -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+              <div class="bg-gradient-to-r from-[#009FE1] to-[#0077B6] p-6">
+                <h3 class="text-2xl font-bold text-white">Ustájení koní</h3>
+                <p class="text-blue-100 mt-2">Kompletní péče o vaše koně v našem areálu</p>
               </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Box standard 3x3m s napáječkou</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">2x denně krmení (seno, oves)</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">1x denně místování boxu</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Přístup do výběhu (1x denně)</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Základní péče o koně</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-gray-300 mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span class="text-gray-400">Jezdecká hala (2h týdně)</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-gray-300 mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span class="text-gray-400">Individuální trénink</span>
-                </li>
-              </ul>
-              <a href="/kontakt" class="block w-full py-3 px-4 text-center rounded-md bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium transition duration-200">
-                Objednat
-              </a>
-            </div>
-          </div>
-  
-          <!-- Standardní balíček -->
-          <div class="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-[#009FE1] relative transform md:-translate-y-4 transition duration-300 hover:shadow-2xl">
-            <div class="bg-[#009FE1] py-4 px-6">
-              <h3 class="text-xl font-bold text-white text-center">Standardní ustájení</h3>
-            </div>
-            <div class="p-6">
-              <div class="text-center mb-6">
-                <span class="text-4xl font-bold text-gray-900">9 500 Kč</span>
-                <span class="text-gray-600 ml-2">/ měsíc</span>
+              <div class="p-6">
+                <div class="space-y-4">
+                  <div v-for="(item, index) in boardingServices" :key="index" class="flex items-start gap-3">
+                    <div class="p-1 bg-blue-100 rounded-full mt-1">
+                      <Icon name="ph:check-bold" class="w-4 h-4 text-[#009FE1]" />
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-black">{{ item.title }}</h4>
+                      <p class="text-gray-600 text-sm mt-1">{{ item.description }}</p>
+                      <div class="mt-2 font-bold text-[#009FE1]">{{ item.price }} Kč</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <button class="w-full py-3 px-4 bg-[#009FE1] text-white rounded-lg font-medium transition hover:bg-[#0077B6] focus:ring-4 focus:ring-blue-200">
+                    Rezervovat ustájení
+                  </button>
+                </div>
               </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Box premium 3,5x3,5m s napáječkou</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">3x denně krmení (seno, oves, granule)</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">1x denně kompletní údržba boxu</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Přístup do výběhu (2x denně)</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Rozšířená péče a čištění koně</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Jezdecká hala (5h týdně)</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-gray-300 mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span class="text-gray-400">Individuální trénink</span>
-                </li>
-              </ul>
-              <a href="/kontakt" class="block w-full py-3 px-4 text-center rounded-md bg-[#009FE1] hover:bg-black text-white font-medium transition duration-200">
-                Objednat
-              </a>
             </div>
-          </div>
-  
-          <!-- Premium balíček -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
-            <div class="bg-gray-900 py-4 px-6">
-              <h3 class="text-xl font-bold text-white text-center">Premium ustájení</h3>
-            </div>
-            <div class="p-6">
-              <div class="text-center mb-6">
-                <span class="text-4xl font-bold text-gray-900">12 500 Kč</span>
-                <span class="text-gray-600 ml-2">/ měsíc</span>
+
+            <!-- Doplňkové služby -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+              <div class="bg-gradient-to-r from-gray-800 to-black p-6">
+                <h3 class="text-2xl font-bold text-white">Doplňkové služby k ustájení</h3>
+                <p class="text-gray-300 mt-2">Nadstandardní péče pro vaše koně</p>
               </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Luxusní box 4x4m s oknem</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">4x denně krmení dle individuálního plánu</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">2x denně kompletní údržba boxu</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Neomezený přístup do výběhu</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Kompletní denní péče a čištění</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">Neomezený přístup do haly</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="h-5 w-5 text-[#009FE1] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-gray-700">2h individuálního tréninku týdně</span>
-                </li>
-              </ul>
-              <a href="/kontakt" class="block w-full py-3 px-4 text-center rounded-md bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium transition duration-200">
-                Objednat
-              </a>
+              <div class="p-6">
+                <div class="space-y-6">
+                  <div v-for="(item, index) in boardingAdditionalServices" :key="index" class="flex justify-between items-center border-b border-gray-100 pb-4">
+                    <div>
+                      <h4 class="font-medium text-black">{{ item.title }}</h4>
+                      <p class="text-gray-600 text-sm mt-1">{{ item.description }}</p>
+                    </div>
+                    <div class="font-bold text-black">{{ item.price }} Kč</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-  
+
+        <!-- Trénink koní a jezdců -->
+        <div v-show="activeTab === 'training'" class="transition-all duration-300">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Balíček 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+              <div class="relative overflow-hidden">
+                <img src="https://picsum.photos/id/1025/800/400" alt="Trénink koní" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold text-white">Základní trénink</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 mb-4">Ideální pro začínající jezdce a koně ve výcviku</p>
+                <div class="flex justify-between items-end mb-4">
+                  <span class="text-3xl font-bold text-black">450 Kč</span>
+                  <span class="text-gray-500">/ lekce (45 min)</span>
+                </div>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Individuální přístup</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Základní dovednosti</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Práce na jízdárně</span>
+                  </div>
+                </div>
+                <button class="w-full py-3 px-4 bg-[#009FE1] text-white rounded-lg font-medium transition hover:bg-[#0077B6] focus:ring-4 focus:ring-blue-200">
+                  Rezervovat trénink
+                </button>
+              </div>
+            </div>
+
+            <!-- Balíček 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 lg:scale-105 z-10">
+              <div class="relative overflow-hidden">
+                <div class="absolute top-3 right-3 bg-[#009FE1] text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+                  Nejoblíbenější
+                </div>
+                <img src="https://picsum.photos/id/1028/800/400" alt="Pokročilý trénink" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold text-white">Pokročilý trénink</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 mb-4">Pro zkušenější jezdce a koně s základním výcvikem</p>
+                <div class="flex justify-between items-end mb-4">
+                  <span class="text-3xl font-bold text-black">650 Kč</span>
+                  <span class="text-gray-500">/ lekce (60 min)</span>
+                </div>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Specializované cvičení</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Parkurová příprava</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Drezurní prvky</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Video analýza</span>
+                  </div>
+                </div>
+                <button class="w-full py-3 px-4 bg-[#009FE1] text-white rounded-lg font-medium transition hover:bg-[#0077B6] focus:ring-4 focus:ring-blue-200">
+                  Rezervovat trénink
+                </button>
+              </div>
+            </div>
+
+            <!-- Balíček 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+              <div class="relative overflow-hidden">
+                <img src="https://picsum.photos/id/1059/800/400" alt="Závodní trénink" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold text-white">Závodní příprava</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-600 mb-4">Komplexní příprava pro závodní dvojice</p>
+                <div class="flex justify-between items-end mb-4">
+                  <span class="text-3xl font-bold text-black">850 Kč</span>
+                  <span class="text-gray-500">/ lekce (90 min)</span>
+                </div>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Závodní simulace</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Mentální příprava</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Kompletní strategie</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:check-circle-fill" class="w-5 h-5 text-[#009FE1]" />
+                    <span class="text-gray-700">Konzultace s týmem</span>
+                  </div>
+                </div>
+                <button class="w-full py-3 px-4 bg-[#009FE1] text-white rounded-lg font-medium transition hover:bg-[#0077B6] focus:ring-4 focus:ring-blue-200">
+                  Rezervovat trénink
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doplňkové služby k tréninku -->
+          <div class="mt-12">
+            <h3 class="text-xl font-bold text-black mb-6">Doplňkové služby k tréninku</h3>
+            <div class="bg-gray-50 rounded-xl p-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div v-for="(item, index) in trainingAdditionalServices" :key="index" class="flex items-start gap-4">
+                  <div class="bg-white p-3 rounded-full shadow-md">
+                    <Icon :name="item.icon" class="w-6 h-6 text-[#009FE1]" />
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-black">{{ item.title }}</h4>
+                    <p class="text-gray-600 text-sm mt-1">{{ item.description }}</p>
+                    <div class="mt-2 font-bold text-[#009FE1]">{{ item.price }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Doplňkové služby -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <div class="bg-gray-900 py-4 px-6">
-            <h3 class="text-xl font-bold text-white text-center">Doplňkové služby</h3>
-          </div>
-          <div class="p-6">
-            <div class="overflow-x-auto">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead>
-                  <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Služba</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Popis</th>
-                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Cena</th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Individuální trénink</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">60 minut tréninkové jednotky s profesionálním trenérem</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-right">600 Kč / hodina</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Lonžování</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">30 minut lonžování koně zkušeným trenérem</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-right">350 Kč / 30 min</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Výcvik koně</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">Výcvik koně bez jezdce, řešení specifických problémů</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-right">750 Kč / hodina</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Přeprava koně</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">Přeprava koně na závody, veterinu a jiné akce</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-right">20 Kč / km</td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Solárium</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">Použití solária pro koně</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 text-right">200 Kč / 20 min</td>
-                  </tr>
-                </tbody>
-              </table>
+        <div v-show="activeTab === 'additionalServices'" class="transition-all duration-300">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 p-6">
+              <h3 class="text-xl font-bold text-black mb-6 flex items-center gap-2">
+                <Icon name="ph:first-aid-kit" class="w-6 h-6 text-[#009FE1]" />
+                Ošetření a manipulace s koněm
+              </h3>
+              <div class="space-y-4">
+                <div v-for="(item, index) in horseCareServices" :key="index" class="flex justify-between items-start pb-4 border-b border-gray-100">
+                  <div>
+                    <h4 class="font-medium text-black">{{ item.title }}</h4>
+                    <p class="text-gray-600 text-sm mt-1">{{ item.description }}</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-bold text-black">{{ item.price }}</div>
+                    <div class="text-xs text-gray-500">{{ item.unit }}</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 p-6">
+              <h3 class="text-xl font-bold text-black mb-6 flex items-center gap-2">
+                <Icon name="ph:car" class="w-6 h-6 text-[#009FE1]" />
+                Doprava a doprovod na závodech
+              </h3>
+              <div class="space-y-4">
+                <div v-for="(item, index) in transportServices" :key="index" class="flex justify-between items-start pb-4 border-b border-gray-100">
+                  <div>
+                    <h4 class="font-medium text-black">{{ item.title }}</h4>
+                    <p class="text-gray-600 text-sm mt-1">{{ item.description }}</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-bold text-black">{{ item.price }}</div>
+                    <div class="text-xs text-gray-500">{{ item.unit }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Banner -->
+          <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#009FE1] to-[#0077B6] p-8 md:p-12">
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-2">Potřebujete individuální služby?</h3>
+                <p class="text-blue-100">Kontaktujte nás pro vytvoření nabídky na míru vašim potřebám.</p>
+              </div>
+              <button class="px-6 py-3 bg-white text-[#009FE1] rounded-lg font-medium transition hover:bg-gray-100 focus:ring-4 focus:ring-white/30 whitespace-nowrap">
+                Kontaktovat nás
+              </button>
+            </div>
+            <!-- Dekorativní prvky -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
+            <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full -ml-20 -mb-20"></div>
           </div>
         </div>
       </div>
-    </section>
-  </template>
-  
-  <script>
-  export default {
-    name: 'PricingSection'
-  }
-  </script>
+
+      <!-- Konec sekce ceníku - bez FAQ -->
+      <div>
+        <!-- Prázdný prostor pro vlastní implementaci FAQ sekce -->
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+// Definice záložek
+const tabs = [
+  { id: 'boarding', name: 'Ustájení koní' },
+  { id: 'training', name: 'Trénink koní a jezdců' },
+  { id: 'additionalServices', name: 'Doplňkové služby' },
+];
+
+// Aktivní záložka
+const activeTab = ref('boarding');
+
+// Data pro ustájení koní
+const boardingServices = [
+  { 
+    title: 'Boxové ustájení - standard', 
+    description: 'Box o velikosti 3x3m, krmení 3x denně, seno ad libitum, denní úklid boxu, výběh v paddocku', 
+    price: '9 500',
+  },
+  { 
+    title: 'Boxové ustájení - premium', 
+    description: 'Box o velikosti 4x4m, krmení 3x denně dle individuálního plánu, seno ad libitum, denní úklid boxu, výběh v paddocku, denní kontrola', 
+    price: '12 000',
+  },
+  { 
+    title: 'Pastevní ustájení', 
+    description: 'Celodenní pastva ve výběhu, přístřešek, přikrmování v zimě, základní péče', 
+    price: '6 000',
+  },
+];
+
+// Doplňkové služby k ustájení
+const boardingAdditionalServices = [
+  { 
+    title: 'Lonžování koně', 
+    description: '20 min. práce s koněm', 
+    price: '250',
+  },
+  { 
+    title: 'Individuální krmný plán', 
+    description: 'Sestavení a úprava krmné dávky dle potřeb koně', 
+    price: '500',
+  },
+  { 
+    title: 'Dekování/oddekování', 
+    description: 'Každodenní služba', 
+    price: '1 200',
+  },
+  { 
+    title: 'Medikace dle potřeby', 
+    description: 'Podávání léků dle instrukcí veterináře', 
+    price: '500',
+  },
+  { 
+    title: 'Asistence při kování', 
+    description: 'Držení koně při kování/úpravě kopyt', 
+    price: '300',
+  },
+];
+
+// Doplňkové služby k tréninku
+const trainingAdditionalServices = [
+  { 
+    title: 'Video analýza tréninku', 
+    description: 'Natočení a rozbor videa z tréninku', 
+    price: '450 Kč / hod',
+    icon: 'ph:video-camera',
+  },
+  { 
+    title: 'Sestavení tréninkového plánu', 
+    description: 'Individuální plán na 3 měsíce', 
+    price: '1 500 Kč',
+    icon: 'ph:notepad',
+  },
+  { 
+    title: 'Konzultace s trenérem', 
+    description: 'Osobní nebo online konzultace', 
+    price: '600 Kč / hod',
+    icon: 'ph:chats-circle',
+  },
+];
+
+// Služby ošetření a manipulace
+const horseCareServices = [
+  { 
+    title: 'Základní ošetření koně', 
+    description: 'Čištění, kontrola zdravotního stavu', 
+    price: '300 Kč',
+    unit: 'za úkon',
+  },
+  { 
+    title: 'Bandážování', 
+    description: 'Aplikace bandáží na končetiny', 
+    price: '150 Kč',
+    unit: 'za úkon',
+  },
+  { 
+    title: 'Aplikace léčiv', 
+    description: 'Dle instrukcí veterináře', 
+    price: '200 Kč',
+    unit: 'za úkon',
+  },
+  { 
+    title: 'Asistence při veterinárním ošetření', 
+    description: 'Držení koně, asistence', 
+    price: '350 Kč',
+    unit: 'za hodinu',
+  },
+  { 
+    title: 'Stříhání koně', 
+    description: 'Kompletní úprava srsti strojkem', 
+    price: '1 500 Kč',
+    unit: 'za úkon',
+  },
+];
+
+// Služby dopravy
+const transportServices = [
+  { 
+    title: 'Přeprava koně - do 50 km', 
+    description: 'Jedno zvíře, jednosměrná cesta', 
+    price: '25 Kč/km',
+    unit: 'min. 1000 Kč',
+  },
+  { 
+    title: 'Přeprava koně - nad 50 km', 
+    description: 'Jedno zvíře, jednosměrná cesta', 
+    price: '20 Kč/km',
+    unit: 'min. 1500 Kč',
+  },
+  { 
+    title: 'Doprovod na závodech - základní', 
+    description: 'Příprava koně, sedlání, asistence', 
+    price: '1 500 Kč',
+    unit: 'za den',
+  },
+  { 
+    title: 'Doprovod na závodech - kompletní', 
+    description: 'Vč. přihlášení, taktika, péče o koně', 
+    price: '2 500 Kč',
+    unit: 'za den',
+  },
+  { 
+    title: 'Ubytování koně na závodech', 
+    description: 'Zajištění ustájení, krmiva', 
+    price: 'dle aktuální nabídky',
+    unit: 'plus 15% poplatek',
+  },
+];
+
+// FAQ sekce byla odstraněna
+</script>

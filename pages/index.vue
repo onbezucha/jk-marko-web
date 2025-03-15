@@ -2,8 +2,8 @@
     <div class="default-layout">
         <SekceHero />
         <SekceInformace />
-        <SekceSluzby />
-        <SekceTreninky />        
+        <SekceAreal />  
+        <SekceSluzby />      
         <SekceBlog />
         <SekceFAQ />
     </div>
@@ -12,10 +12,10 @@
   <script setup>
     import SekceHero               from '~/components/sections/hero/homepage.vue';
     import SekceInformace          from '~/components/sections/intro/homepage.vue';
-    import SekceTreninky           from '~/components/sections/intro/bentogrid.vue';
+    import SekceAreal              from '~/components/sections/informations/areal.vue';
     import SekceSluzby             from '~/components/sections/services/homepage.vue';
     import SekceBlog               from '~/components/sections/blog/homepage.vue';
-    import SekceFAQ                from '~/components/sections/faq/index.vue';
+    import SekceFAQ                from '~/components/sections/faq/homepage.vue';
     
   // Metadata pro SEO
     useSeoMeta({
