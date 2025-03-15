@@ -4,7 +4,7 @@
       <!-- Hlavička sekce -->
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
-          Ceník služeb
+          Služby
         </h2>
         <div class="w-24 h-1 bg-[#009FE1] mx-auto mb-6"></div>
         <p class="max-w-2xl mx-auto text-gray-600 text-lg">
