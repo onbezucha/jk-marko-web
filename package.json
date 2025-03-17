@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/content": "^3.3.0",
     "@tailwindcss/vite": "^4.0.14",
     "nuxt": "^3.16.0",
     "posthog-js": "^1.231.0",

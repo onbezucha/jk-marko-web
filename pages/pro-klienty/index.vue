@@ -86,7 +86,8 @@
                                     <span class="text-xs">4 komentáře</span>
                                 </button>
                             </div>
-                            <button
+                            <NuxtLink
+                                to="/novinky/jarni-uprava-povrchu"
                                 class="inline-flex items-center text-sm font-medium text-[#009FE1] hover:text-[#0080B8]"
                             >
                                 Více informací
@@ -94,7 +95,7 @@
                                     name="uil:arrow-right"
                                     class="w-4 h-4 ml-1"
                                 />
-                            </button>
+                            </NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -140,11 +141,12 @@
                                         <span class="mx-2 text-gray-300"
                                             >•</span
                                         >
-                                        <button
+                                        <NuxtLink
+                                            to="/novinky/zmena-rozvrhu"
                                             class="text-xs text-[#009FE1] hover:text-[#0080B8]"
                                         >
                                             Přečíst více
-                                        </button>
+                                        </NuxtLink>
                                     </div>
                                 </div>
                             </div>
@@ -188,11 +190,12 @@
                                         <span class="mx-2 text-gray-300"
                                             >•</span
                                         >
-                                        <button
+                                        <NuxtLink
+                                            to="/novinky/uspech-jezdcu"
                                             class="text-xs text-[#009FE1] hover:text-[#0080B8]"
                                         >
                                             Přečíst více
-                                        </button>
+                                        </NuxtLink>
                                     </div>
                                 </div>
                             </div>
@@ -234,11 +237,12 @@
                                         <span class="mx-2 text-gray-300"
                                             >•</span
                                         >
-                                        <button
+                                        <NuxtLink
+                                            to="/novinky/letni-tabory"
                                             class="text-xs text-[#009FE1] hover:text-[#0080B8]"
                                         >
                                             Přečíst více
-                                        </button>
+                                        </NuxtLink>
                                     </div>
                                 </div>
                             </div>
@@ -248,15 +252,16 @@
 
                 <!-- Tlačítko pro zobrazení více oznámení -->
                 <div class="mt-4 text-center">
-                    <button
-                        class="px-4 py-2 text-sm text-[#009FE1] hover:text-[#0080B8] border border-gray-200 rounded-lg hover:bg-gray-50 transition-all duration-200"
+                    <NuxtLink
+                        to="/novinky"
+                        class="px-4 py-2 text-sm text-[#009FE1] hover:text-[#0080B8] border border-gray-200 rounded-lg hover:bg-gray-50 transition-all duration-200 inline-block"
                     >
                         Zobrazit všechna oznámení
                         <Icon
                             name="uil:angle-down"
                             class="w-4 h-4 ml-1 inline-block"
                         />
-                    </button>
+                    </NuxtLink>
                 </div>
             </section>
 
@@ -324,7 +329,8 @@
                                         Náhled
                                     </button>
                                     <a
-                                        href="#"
+                                        href="/documents/cenik_2024.pdf"
+                                        download
                                         class="text-xs text-[#009FE1] hover:text-[#0080B8] transition duration-200 flex items-center"
                                     >
                                         <Icon
@@ -379,7 +385,8 @@
                                         Náhled
                                     </button>
                                     <a
-                                        href="#"
+                                        href="/documents/bezpecnostni_pokyny.docx"
+                                        download
                                         class="text-xs text-[#009FE1] hover:text-[#0080B8] transition duration-200 flex items-center"
                                     >
                                         <Icon
@@ -434,7 +441,8 @@
                                         Náhled
                                     </button>
                                     <a
-                                        href="#"
+                                        href="/documents/rozvrh_jaro_2024.xlsx"
+                                        download
                                         class="text-xs text-[#009FE1] hover:text-[#0080B8] transition duration-200 flex items-center"
                                     >
                                         <Icon
@@ -543,7 +551,8 @@
                                                 />
                                             </button>
                                             <a
-                                                href="#"
+                                                href="/documents/provozni_rad.pdf"
+                                                download
                                                 class="text-[#009FE1] hover:text-[#0080B8] p-1 rounded-full hover:bg-blue-50 transition-colors duration-200"
                                             >
                                                 <Icon
@@ -607,7 +616,8 @@
                                                 />
                                             </button>
                                             <a
-                                                href="#"
+                                                href="/documents/vzor_smlouvy.docx"
+                                                download
                                                 class="text-[#009FE1] hover:text-[#0080B8] p-1 rounded-full hover:bg-blue-50 transition-colors duration-200"
                                             >
                                                 <Icon
@@ -672,7 +682,8 @@
                                                 />
                                             </button>
                                             <a
-                                                href="#"
+                                                href="/documents/formular_zdravotni.pdf"
+                                                download
                                                 class="text-[#009FE1] hover:text-[#0080B8] p-1 rounded-full hover:bg-blue-50 transition-colors duration-200"
                                             >
                                                 <Icon
@@ -689,15 +700,20 @@
 
                     <!-- Načíst více -->
                     <div class="bg-gray-50 px-6 py-3 flex justify-center">
-                        <button
+                        <NuxtLink
+                            to="/dokumenty"
                             class="text-sm text-[#009FE1] hover:text-[#0080B8] font-medium flex items-center"
                         >
                             Zobrazit všechny soubory
                             <Icon name="uil:arrow-right" class="w-4 h-4 ml-1" />
-                        </button>
+                        </NuxtLink>
                     </div>
                 </div>
             </section>
         </div>
     </div>
 </template>
+
+<script setup>
+// Jednoduchý setup bez modálu a komplexních funkcí
+</script>
