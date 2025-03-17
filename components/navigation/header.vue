@@ -162,10 +162,9 @@ const mobileMenuOpen = ref(false);
 
 // Seznam položek navigace
 const navItems = [
-    { name: "O nás", path: "/onas" },
+    { name: "Jezdecký klub", path: "/onas" },
     { name: "Služby", path: "/sluzby" },
     { name: "Naše koně", path: "/nase-kone" },
-    { name: "Jezdecký klub", path: "/jezdecky-klub" },
     { name: "Pro klienty", path: "/pro-klienty" },
 ];
 
