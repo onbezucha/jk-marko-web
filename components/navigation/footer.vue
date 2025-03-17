@@ -49,33 +49,21 @@
           </h3>
           <ul class="space-y-3">
             <li>
-              <NuxtLink to="/" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
+              <NuxtLink to="/onas" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
-                Úvod
+                O nás
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/o-nas" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
+              <NuxtLink to="/novinky" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
-                O nás
+                Novinky
               </NuxtLink>
             </li>
             <li>
               <NuxtLink to="/sluzby" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
                 Služby
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/akce-zavody" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
-                <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
-                Akce a závody
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/cenik" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
-                <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
-                Ceník
               </NuxtLink>
             </li>
             <li>
@@ -95,31 +83,31 @@
           </h3>
           <ul class="space-y-3">
             <li>
-              <NuxtLink to="/sluzby#vycvik-jezdcu" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
+              <NuxtLink to="/sluzby" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
                 Výcvik jezdců/koní
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/sluzby#ustajeni-koni" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
+              <NuxtLink to="/sluzby" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
                 Ustájení koní
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/sluzby#doprava" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
+              <NuxtLink to="/sluzby" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
                 Doprava na závody
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/sluzby#pronajem-jizdarny" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
+              <NuxtLink to="/sluzby" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
                 Pronájem jízdárny
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/sluzby#doplnkove" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
+              <NuxtLink to="/sluzby" class="text-gray-400 hover:text-[#009FE1] transition-colors flex items-center group">
                 <span class="w-0 h-0.5 bg-[#009FE1] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"></span>
                 Doplňkové služby
               </NuxtLink>

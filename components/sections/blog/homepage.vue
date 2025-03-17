@@ -205,13 +205,12 @@
       <!-- Tlačítko pro všechny články -->
       <div class="text-center">
         <a 
-          href="/blog" 
+          href="/novinky" 
           class="relative inline-flex items-center justify-center bg-[#009FE1] hover:bg-black text-white py-3.5 px-8 rounded-lg font-medium overflow-hidden transform hover:-translate-y-1 transition duration-300 group shadow-md"
         >
           <span class="relative z-10 flex items-center">
             Všechny články
             <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">
-              <IconRigidArrowRight class="h-5 w-5" />
             </span>
           </span>
           <span class="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>

@@ -120,8 +120,8 @@ const mobileMenuOpen = ref(false)
 // Seznam položek navigace
 const navItems = [
   { name: 'O nás', path: '/onas' },
-  { name: 'Novinky', path: '/sluzby' },
-  { name: 'Služby', path: '/cenik' },
+  { name: 'Novinky', path: '/novinky' },
+  { name: 'Služby', path: '/sluzby' },
   { name: 'Naše koně', path: '/kontakt' },
   { name: 'Jezdecký klub', path: '/kontakt' },
   { name: 'Pro klienty', path: '/kontakt' }

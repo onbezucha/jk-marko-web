@@ -1,11 +1,13 @@
 <template>
   <div class="default-layout">
-      
+      <CenikSluzeb />
+      <SekceFAQ />
   </div>
 </template>
 
 <script setup>
-  import KontaktniFormular       from '~/components/form/contact.vue';
+  import CenikSluzeb       from '~/components/sections/pricing/index.vue';
+  import SekceFAQ          from '~/components/sections/faq/pricing.vue';
   
 // Metadata pro SEO
   useSeoMeta({
